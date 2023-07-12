@@ -4,7 +4,7 @@ import { createVuePlugin as vue2 } from 'vite-plugin-vue2'
 import { baseBuildConfig, getSharedPlugins } from '../vite.base.config'
 
 export const viteVue2Config = defineConfig({
-  plugins: [vue2(), ...getSharedPlugins('v2')],
+  plugins: [vue2(), ...getSharedPlugins()],
   server: {
     port: 2000
   },

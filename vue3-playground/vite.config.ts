@@ -4,7 +4,7 @@ import vue3 from '@vitejs/plugin-vue'
 import { baseBuildConfig, getSharedPlugins } from '../vite.base.config'
 
 export const viteVue3Config = defineConfig({
-  plugins: [vue3() as unknown as Plugin, ...getSharedPlugins('v3')],
+  plugins: [vue3() as unknown as Plugin, ...getSharedPlugins()],
   server: {
     port: 3000
   },

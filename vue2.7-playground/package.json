@@ -1,7 +1,7 @@
 {
 	"name": "vue2.7-playground",
 	"version": "1.0.0",
-    "private": true,
+	"private": true,
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build"
@@ -11,10 +11,10 @@
 	"repository": {
 		"type": "git"
 	},
-	"peerDependencies": {
-		"vue": ">= 2.7.0"
-	},
 	"devDependencies": {
+		"@vitejs/plugin-vue2": "^2.2.0"
+	},
+	"dependencies": {
 		"vue": "^2.7.14"
 	}
 }

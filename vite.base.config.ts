@@ -1,18 +1,10 @@
-/// <reference types="vitest" />
 import { defineConfig, Plugin } from 'vite'
 import * as path from 'path'
-import { isVue2, isVue3 } from 'vue-demi'
-import Unocss from 'unocss/vite'
-//@ts-expect-error unocss
-import presetUno from '@unocss/preset-uno'
-import presetAttributify from '@unocss/preset-attributify'
+import { isVue2 } from 'vue-demi'
 import DtsPlugin from 'vite-plugin-dts'
 
 const outputName = 'index'
-export const getSharedPlugins = (vueVersion: 'v2' | 'v2.7' | 'v3'): Plugin[] => [
-  Unocss({
-    presets: [presetAttributify(), presetUno()]
-  }) as any,
+export const getSharedPlugins = (): Plugin[] => [
   DtsPlugin({
     root: '..',
     compilerOptions: {
@@ -20,9 +12,6 @@ export const getSharedPlugins = (vueVersion: 'v2' | 'v2.7' | 'v3'): Plugin[] => 
     },
     // only compiler our component source code
     include: ['src/**'],
-    // vue2.6 does not apply to this plugin, ignore the error, 2.6 or handwritten .d.ts is better
-    skipDiagnostics: vueVersion === 'v2',
-    noEmitOnError: vueVersion === 'v2'
   })
 ]
 
@@ -53,27 +42,4 @@ export const baseBuildConfig = defineConfig({
   optimizeDeps: {
     exclude: ['vue-demi', 'vue', 'vue2', 'vue3']
   },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    include: [
-      '__test__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
-    ],
-    alias: {
-      '@tests/utils': path.resolve(__dirname, `./tests/utils`)
-    },
-    setupFiles: [path.resolve(__dirname, 'tests/setup.ts')],
-    deps: {
-      inline: ['vue2.7', 'vue2', '@vue/composition-api', 'vue-demi', '@vue/test-utils', '@vue/test-utils2']
-    },
-    resolveSnapshotPath: (testPath, snapExtension) => {
-      return path.join(
-        path.join(
-          path.dirname(testPath),
-          isVue3 ? '__snapshotsV3__' : '__snapshots__'
-        ),
-        `${path.basename(testPath)}${snapExtension}`
-      )
-    }
-  }
 })

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { templateComponentProps } from "./props";
+import { templateComponentProps } from "./props.d";
 import { defineComponent } from "vue-demi";
 
 export default defineComponent({
