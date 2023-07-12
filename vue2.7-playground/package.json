@@ -1,0 +1,20 @@
+{
+	"name": "vue2.7-playground",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build"
+	},
+	"author": "ChuHoMan",
+	"license": "MIT",
+	"repository": {
+		"type": "git"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue2": "^2.2.0"
+	},
+	"dependencies": {
+		"vue": "^2.7.14"
+	}
+}
