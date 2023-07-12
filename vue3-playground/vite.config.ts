@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import * as path from 'path'
 import vue3 from '@vitejs/plugin-vue'
-import { baseBuildConfig } from '../vite.base.config'
+import { baseBuildConfig, getSharedPlugins } from '../vite.base.config'
 
 export const viteVue3Config = defineConfig({
-  plugins: [vue3()],
+  plugins: [vue3() as unknown as Plugin, ...getSharedPlugins()],
   server: {
     port: 3000
   },

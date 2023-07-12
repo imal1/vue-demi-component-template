@@ -1,8 +1,19 @@
-import { defineConfig } from 'vite'
+import { defineConfig, Plugin } from 'vite'
 import * as path from 'path'
 import { isVue2 } from 'vue-demi'
+import DtsPlugin from 'vite-plugin-dts'
 
 const outputName = 'index'
+export const getSharedPlugins = (): Plugin[] => [
+  DtsPlugin({
+    root: '..',
+    compilerOptions: {
+      skipLibCheck: true
+    },
+    // only compiler our component source code
+    include: ['src/**'],
+  })
+]
 
 console.log('Vue version:', isVue2 ? 'v2' : 'v3')
 
