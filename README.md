@@ -3,7 +3,7 @@
 > Vue.js component template for Vue 2 and 2.7 and 3.
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/ChuHoMan/vue-demi-component-template/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/imal1/vue-demi-component-template/blob/main/README.zh-CN.md">简体中文</a>
 </p>
 
 ## Features
@@ -18,7 +18,7 @@
 To use this template, clone it down using:
 
 ```bash
-npx degit ChuHoMan/vue-demi-component-template my-component
+npx degit imal1/vue-demi-component-template my-component
 ```
 
 And do a global replace of `vue-demi-component-template` and `VueDemiComponentTemplate` with your component library name.
